@@ -1,0 +1,169 @@
+(*posicion inicial x=110*)
+(*Actuadores*)
+
+FOR i:=1 TO 12 BY 1 DO
+	IF A0=TRUE AND caja_x[i]<=340 THEN
+		caja_x[i]:=caja_x[i]+velocidad;
+	END_IF
+END_FOR
+
+FOR i:=1 TO 12 BY 1 DO
+	IF A1=TRUE AND caja_x[i]>=340 AND caja_x[i]<=840 THEN
+		caja_x[i]:=caja_x[i]+velocidad;
+	END_IF
+END_FOR
+
+FOR i:=1 TO 12 BY 1 DO
+	IF A2=TRUE AND A3 = FALSE THEN
+		IF caja_x[i]>=840 AND S4 = TRUE AND caja_y[i]>=-50 AND caja_y[i]<=50 THEN
+			caja_x[i]:=caja_x[i]+velocidad;
+		END_IF
+		IF caja_x[i]>=880 AND caja_x[i]<= 1060 AND S5 = TRUE AND caja_y[i]<=80 AND caja_y[i] >=- 80 THEN
+			caja_y[i]:=caja_y[i]-velocidad;
+		END_IF
+	END_IF
+END_FOR
+
+FOR i:=1 TO 12 BY 1 DO
+	IF A3=TRUE AND A2=FALSE AND caja_x[i]>=880 AND caja_x[i]<= 1060 AND S5 = TRUE AND caja_y[i]<=80 AND caja_y[i] >= -80 THEN
+		caja_y[i]:=caja_y[i]+velocidad;
+	END_IF
+END_FOR
+
+FOR i:=1 TO 12 BY 1 DO
+	IF A4 = TRUE THEN
+		IF giro>-90 THEN
+			giro:=giro-0.5;
+		END_IF
+	ELSE
+		IF giro<0 THEN
+			giro:=giro+0.5;
+		END_IF
+	END_IF
+	IF caja_x[i]>=880 AND caja_x[i]<= 1060 AND caja_y[i]<=80 AND caja_y[i] >=- 80 THEN
+		caja_giro[i]:=giro;
+	END_IF
+END_FOR
+
+FOR i:=1 TO 12 BY 1 DO
+	IF A5 = TRUE AND caja_y[i]<=-80 AND  caja_y[i]>=-650 THEN
+		caja_y[i]:=caja_y[i]-velocidad;
+	END_IF
+END_FOR
+
+FOR i:=1 TO 12 BY 1 DO
+	IF A6 = TRUE AND caja_y[i]>=80 AND  caja_y[i]<=650 THEN
+		caja_y[i]:=caja_y[i]+velocidad;
+	END_IF
+END_FOR
+
+(*Sensores*)
+FOR i:=1 TO 12 BY 1 DO
+	IF caja_x[i]>=300 AND caja_x[i]<=380 THEN
+		S0:=TRUE;
+		caja_S0:=i;
+		ELSE IF caja_x[caja_S0]>380 THEN
+			S0:=FALSE;
+		END_IF
+	END_IF
+END_FOR
+
+FOR i:=1 TO 12 BY 1 DO
+	IF caja_x[i]>=300 AND caja_x[i]<=380 THEN
+		S1:=TRUE;
+		caja_S1:=i;
+		IF caja_tamano[caja_S1]=TRUE THEN
+			S2:=TRUE;
+			END_IF
+	END_IF
+	 IF caja_x[caja_S1]>380 THEN
+		S2:=FALSE;
+		S1:=FALSE;
+	END_IF
+END_FOR
+
+FOR i:=1 TO 12 BY 1 DO
+	IF caja_x[i]>=800 AND caja_x[i]<=880 THEN
+		S3:=TRUE;
+		caja_S3:=i;
+		ELSE IF caja_x[caja_S3]>880 THEN
+			S3:=FALSE;
+		END_IF
+	END_IF
+END_FOR
+
+IF giro>=0 THEN
+	S4:=TRUE;
+ELSE
+	S4:=FALSE;
+END_IF
+
+IF giro<=-90 THEN
+	S5:=TRUE;
+ELSE
+	S5:=FALSE;
+END_IF
+
+FOR i:=1 TO 12 BY 1 DO
+	IF caja_x[i]>=920 AND caja_y[i]=0 THEN
+		S6:=TRUE;
+		caja_en_rodillo:=i;
+	END_IF
+	 IF caja_y[caja_en_rodillo]<>0 THEN
+		S6:=FALSE;
+	END_IF
+END_FOR
+
+FOR i:=1 TO 12 BY 1 DO
+	IF caja_y[i]>=40 AND caja_y[i]<=120 THEN
+		S7:=TRUE;
+		caja_S7:=i;
+	END_IF
+	IF caja_y[caja_S7]>120 THEN
+		S7:=FALSE;
+	END_IF
+END_FOR
+
+FOR i:=1 TO 12 BY 1 DO
+	IF caja_y[i]<=-40 AND caja_y[i]>=-120 THEN
+		S8:=TRUE;
+	caja_S8:=i;
+	END_IF
+	IF caja_y[caja_S8]<-120 THEN
+		S8:=FALSE;
+	END_IF
+END_FOR
+
+FOR i:=1 TO 12 BY 1 DO
+	IF caja_y[i]<=-490 AND caja_y[i]>=-570 THEN
+		S10:=TRUE;
+	caja_S10:=i;
+	END_IF
+	IF caja_y[caja_S10]<-570 THEN
+		S10:=FALSE;
+	END_IF
+END_FOR
+
+FOR i:=1 TO 12 BY 1 DO
+	IF caja_y[i]>=490 AND caja_y[i]<=570 THEN
+		S9:=TRUE;
+	caja_S9:=i;
+	END_IF
+	IF caja_y[caja_S9]>570 THEN
+		S9:=FALSE;
+	END_IF
+END_FOR
+
+FOR i:=1 TO 12 BY 1 DO
+	IF caja_x[i]<caja_x[mas_lejana] THEN
+		mas_lejana:=i;
+	END_IF
+END_FOR
+
+FOR i:=1 TO 12 BY 1 DO
+	IF caja_y[i]>=650 OR caja_y[i]<=-650 THEN
+		caja_y[i]:=0;
+		caja_x[i]:=caja_x[mas_lejana]-200;
+		caja_giro[i]:=0;
+	END_IF
+END_FOR
