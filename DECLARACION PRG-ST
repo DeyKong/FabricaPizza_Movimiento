@@ -1,0 +1,22 @@
+PROGRAM simulador
+VAR
+	caja_tamano: ARRAY [1..12] OF BOOL:=1,0,0,1,1,0,1,0,0,1,0,1;(*1 grande, 0  pequeña, modificar para cambiar secuencia de cajas*)
+	caja_x:ARRAY  [1..12] OF INT:=0,-200,-400,-600,-800,-1000,-1200,-1400,-1600,-1800,-2000,-2200;
+	caja_y:ARRAY  [1..12] OF INT;
+	caja_giro:ARRAY  [1..12] OF REAL;
+	i: INT;
+	giro: REAL;
+	caja_en_rodillo: INT:=1;
+	velocidad: INT:=2;
+	caja_S1: INT:=1;
+	caja_S0: INT:=1;
+	caja_S3: INT := 1;
+	caja_S7: INT := 1;
+	caja_S8: INT := 1;
+	caja_S10: INT := 1;
+	caja_S9: INT := 1;
+	mas_lejana: INT := 1;
+END_VAR
+
+
+//FIN DE LA DECLARACION
