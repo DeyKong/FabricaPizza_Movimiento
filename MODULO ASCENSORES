@@ -1,6 +1,6 @@
 FOR k:=1 TO 5 BY 1 DO
 
-	IF A60=TRUE AND posx[k]>=630 AND posx[k]<=700 AND posy[k]<=-80 AND posy[k]>=-169 THEN
+	IF A60=TRUE AND posx[k]>=630 AND posx[k]<=700 AND posy[k]<=-80 AND posy[k]>=-159 THEN
 		posy[k]:=posy[k]-1;
 	END_IF
   
@@ -8,7 +8,7 @@ FOR k:=1 TO 5 BY 1 DO
 		posx[k]:=posx[k]+1;
 	END_IF
 
-  IF A61=TRUE AND posx[k]>=730 AND posx[k]<=739 AND posy[k]<=-40 THEN
+  IF A61=TRUE AND posx[k]>=730 AND posx[k]<=749 AND posy[k]<=-40 THEN
 		posx[k]:=posx[k]+1;
 	END_IF
   
