@@ -1,0 +1,150 @@
+IF BPeq=TRUE THEN
+		posx[i]:=0;
+		posy[i]:=-50;
+		i:=i+1;
+END_IF
+
+FOR k:=1 TO 5 BY 1 DO
+	IF A100=TRUE AND posx[k]<=490 AND posy[k]<=-50 THEN
+		posx[k]:=posx[k]+10;
+	END_IF
+END_FOR
+
+FOR k:=1 TO 5 BY 1 DO
+	IF A50=TRUE AND posx[k]>=490 AND posx[k]<=630 AND posy[k]<=-50 THEN
+		posx[k]:=posx[k]+1;
+	END_IF
+END_FOR
+
+FOR k:=1 TO 5 BY 1 DO
+	IF A51=TRUE AND giro = 0 AND posx[k]>=620 AND posx[k]<=690 AND posy[k]<=-50 THEN
+		posx[k]:=posx[k]+1;
+	END_IF
+END_FOR
+
+FOR k:=1 TO 5 BY 1 DO
+	IF A52=TRUE AND giro = 0 AND posx[k]>=630 AND posx[k]<=700 AND posy[k]<=-50 THEN
+		posx[k]:=posx[k]-1;
+	END_IF
+END_FOR
+
+
+IF A51=TRUE OR A52=TRUE THEN
+
+	RodilloColor:=TRUE;
+ELSE
+	RodilloColor:=FALSE;
+
+END_IF
+
+FOR k:=1 TO 5 BY 1 DO
+	IF A53 = TRUE THEN
+		IF giro>-90 THEN
+			giro:=giro-0.5;
+		END_IF
+	ELSE
+		IF giro<0 THEN
+			giro:=giro+0.5;
+		END_IF
+	END_IF
+	IF posx[k]>=620 AND posx[k]<=700 AND posy[k]<=-50 THEN
+		pizza_giro[k]:=giro;
+	END_IF
+END_FOR
+
+FOR k:=1 TO 5 BY 1 DO
+	IF A51=TRUE AND giro = -90 AND posx[k]>=630 AND posx[k]<=700 AND posy[k]<=-10 AND posy[k]>=-80 THEN
+		posy[k]:=posy[k]-1;
+	END_IF
+END_FOR
+
+FOR k:=1 TO 5 BY 1 DO
+	IF A52=TRUE AND giro = -90 AND posx[k]>=630 AND posx[k]<=700 AND posy[k]<=-20 AND posy[k]>=-90 THEN
+		posy[k]:=posy[k]+1;
+	END_IF
+END_FOR
+
+FOR k:=1 TO 5 BY 1 DO
+	IF A60=TRUE AND posx[k]>=630 AND posx[k]<=700 AND posy[k]<=-80 AND posy[k]>=-160 THEN
+		posy[k]:=posy[k]-1;
+	END_IF
+END_FOR
+
+FOR k:=1 TO 5 BY 1 DO
+	IF A60=TRUE AND posx[k]>=630 AND posx[k]<=730 AND posy[k]<=-160 THEN
+		posx[k]:=posx[k]+1;
+	END_IF
+END_FOR
+
+FOR k:=1 TO 5 BY 1 DO
+	IF A70=TRUE AND posx[k]>=630 AND posx[k]<=700 AND posy[k]>=-20 AND posy[k]<=60 THEN
+		posy[k]:=posy[k]+1;
+	END_IF
+END_FOR
+
+FOR k:=1 TO 5 BY 1 DO
+	IF A70=TRUE AND posx[k]>=630 AND posx[k]<=730 AND posy[k]>=60 THEN
+		posx[k]:=posx[k]+1;
+	END_IF
+END_FOR
+
+FOR k:=1 TO 5 BY 1 DO
+	IF A61=TRUE AND posx[k]>=730 AND posx[k]<=740 AND posy[k]<=-40 THEN
+		posx[k]:=posx[k]+1;
+	END_IF
+END_FOR
+
+FOR k:=1 TO 5 BY 1 DO
+	IF A71=TRUE AND posx[k]>=730 AND posx[k]<=740 AND posy[k]>=-40 THEN
+		posx[k]:=posx[k]+1;
+	END_IF
+END_FOR
+
+FOR k:=1 TO 5 BY 1 DO
+	IF A62=TRUE AND pos_y_A>=-60 THEN
+		pos_y_A:=pos_y_A-1;
+	END_IF
+
+	IF A62=TRUE AND pos_y_A>=-230 AND posx[k]>=730 AND posx[k]<=770 THEN
+		posy[k]:=posy[k]-1;
+	END_IF
+
+
+	IF A63=TRUE AND pos_y_A<=70 THEN
+		pos_y_A:=pos_y_A+1;
+	END_IF
+
+	IF A63=TRUE AND pos_y_A<=-100 AND posx[k]>=730 AND posx[k]<=770 THEN
+		posy[k]:=posy[k]+1;
+	END_IF
+
+END_FOR
+
+
+FOR k:=1 TO 5 BY 1 DO
+	IF A72=TRUE AND pos_y_B>=-60 THEN
+		pos_y_B:=pos_y_B-1;
+	END_IF
+
+	IF A72=TRUE AND pos_y_B>=-10 AND posx[k]>=730 AND posx[k]<=770 THEN
+		posy[k]:=posy[k]-1;
+	END_IF
+
+	IF A73=TRUE AND pos_y_B<=80 THEN
+		pos_y_B:=pos_y_B+1;
+	END_IF
+
+	IF A73=TRUE AND pos_y_B<=130 AND posx[k]>=730 AND posx[k]<=770 THEN
+		posy[k]:=posy[k]+1;
+	END_IF
+
+END_FOR
+
+FOR k:=1 TO 5 BY 1 DO
+	IF A80=TRUE AND posx[k]>=730 AND posx[k]<=800 THEN
+		posx[k]:=posx[k]+1;
+	END_IF
+END_FOR
+
+(*Sensores*)
+
