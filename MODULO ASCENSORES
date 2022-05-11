@@ -39,12 +39,12 @@ FOR k:=1 TO 5 BY 1 DO
 
   IF A62=FALSE AND A63=FALSE AND pos_y_A<0 THEN
   		pos_y_A:=pos_y_A+1;
-		posy[k]:=posy[k]+pos_y_A
+		posy[k]:=posy[k]+pos_y_A;
 	END_IF
 	
   IF A62=FALSE AND A63=FALSE AND pos_y_A>0 THEN
   		pos_y_A:=pos_y_A-1;
-		posy[k]:=posy[k]+pos_y_A
+		posy[k]:=posy[k]+pos_y_A;
 	END_IF
 
   IF A63=TRUE AND pos_y_A<=-100 AND posx[k]>=730 AND posx[k]<=770 THEN
