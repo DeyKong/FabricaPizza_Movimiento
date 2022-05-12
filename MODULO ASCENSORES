@@ -38,3 +38,42 @@ FOR k:=1 TO 5 BY 1 DO
   
 END_FOR
 
+FOR k:=1 TO 5 BY 1 DO
+
+	IF A70=TRUE AND posx[k]>=630 AND posx[k]<=700 AND posy[k]>=-20 AND posy[k]<=59 THEN
+		posy[k]:=posy[k]+1;
+	END_IF
+  
+  IF A70=TRUE AND posx[k]>=630 AND posx[k]<=730 AND posy[k]>=60 THEN
+		posx[k]:=posx[k]+1;
+	END_IF
+
+  IF A71=TRUE AND posx[k]>=730 AND posx[k]<=749 AND posy[k]>=-40 THEN
+		posx[k]:=posx[k]+1;
+	END_IF
+  
+  IF A72=TRUE AND pos_y_B>=-59 AND posx[k]>=730 AND posx[k]<=770 THEN
+		pos_y_B:=pos_y_B-1;
+		posy[k]:=posy[k]-1;
+	END_IF
+
+  IF A73=TRUE AND pos_y_B<=70 AND posx[k]>=730 AND posx[k]<=770 THEN
+		pos_y_B:=pos_y_B+1;
+		posy[k]:=posy[k]+1;
+	END_IF
+
+  IF A72=FALSE AND A73=FALSE AND pos_y_B<0 AND posx[k]>=730 AND posx[k]<=770 THEN
+  		pos_y_B:=pos_y_B+1;
+		posy[k]:=posy[k]+1;
+	END_IF
+	
+  IF A72=FALSE AND A73=FALSE AND pos_y_B>0 AND posx[k]>=730 AND posx[k]<=770 THEN
+  		pos_y_B:=pos_y_B-1;
+		posy[k]:=posy[k]-1;
+	END_IF
+
+  IF A80=TRUE AND posx[k]>=730 AND posx[k]<=800 THEN
+		posx[k]:=posx[k]+1;
+	END_IF
+  
+END_FOR
